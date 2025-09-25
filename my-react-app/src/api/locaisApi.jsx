@@ -1,7 +1,5 @@
 export async function getLocais() {
-  const res = await fetch('http://localhost:8080/locais', {
-    credentials: 'include',
-  });
+  const res = await fetch('http://localhost:8080/locais', {});
   if (!res.ok) throw new Error('Erro ao buscar locais');
   return res.json();
 }
@@ -9,8 +7,10 @@ export async function getLocais() {
 export async function criarLocal(local) {
   const res = await fetch('http://localhost:8080/locais', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbnRlQGdtYWlsLmNvbSIsInJvbGUiOiJHRVJFTlRFIiwiZXhwIjoxNzU4ODA1MjE4fQ.Gc69wY1hxMlx9XZeqfqsIs9XV8hDzvcUVSfmKkIXV9s`,
+    },
     body: JSON.stringify(local),
   });
   if (!res.ok) throw new Error('Erro ao criar local');
@@ -20,8 +20,11 @@ export async function criarLocal(local) {
 export async function editarLocal(id, local) {
   const res = await fetch(`http://localhost:8080/locais/${id}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbnRlQGdtYWlsLmNvbSIsInJvbGUiOiJHRVJFTlQiLCJleHAiOjE3NTg4MDUyMTh9.Gc69wY1hxMlx9XZeqfqsIs9XV8hDzvcUVSfmKkIXV9s',
+    },
     body: JSON.stringify(local),
   });
   if (!res.ok) throw new Error('Erro ao editar local');
@@ -31,7 +34,6 @@ export async function editarLocal(id, local) {
 export async function deletarLocal(id) {
   const res = await fetch(`http://localhost:8080/locais/${id}`, {
     method: 'DELETE',
-    credentials: 'include',
   });
   if (!res.ok) throw new Error('Erro ao deletar local');
   return true;

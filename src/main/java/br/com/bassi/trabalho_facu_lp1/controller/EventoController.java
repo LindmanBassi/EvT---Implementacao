@@ -29,6 +29,7 @@ public class EventoController {
     public ResponseEntity<List<Evento>> listarEventos() {
         return ResponseEntity.ok(eventoService.listarEventos());
     }
+
     @PreAuthorize("!hasAuthority('VISITANTE')")
     @GetMapping("/{id}")
     public ResponseEntity<Evento> buscarEventoPorId(@PathVariable Long id) {
@@ -50,8 +51,4 @@ public class EventoController {
         var evento = eventoService.editarEvento(id, eventoDTO);
         return ResponseEntity.ok(evento);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 6984d858 (Minhas alterações locais antes do pull)
 }
