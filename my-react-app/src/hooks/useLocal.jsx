@@ -4,9 +4,9 @@ import {
   getLocais,
   editarLocal,
   deletarLocal,
-} from '../api/locaisApi';
+} from '../services/localService';
 
-export function useLocais() {
+export function useLocal() {
   const [formData, setFormData] = useState({
     nome: '',
     endereco: {

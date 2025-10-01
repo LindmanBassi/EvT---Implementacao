@@ -1,7 +1,7 @@
 import React from 'react';
-import { useLocais } from '../hooks/useLocais';
+import { useLocal } from '../../../hooks/useLocal';
 
-function LocaisComponent() {
+function LocalComponent() {
   const {
     formData,
     handleChange,
@@ -10,7 +10,7 @@ function LocaisComponent() {
     iniciarEdicao,
     handleDeletar,
     localEditando,
-  } = useLocais();
+  } = useLocal();
 
   return (
     <div className="locais-container">
@@ -117,4 +117,4 @@ function LocaisComponent() {
   );
 }
 
-export default LocaisComponent;
+export default LocalComponent;

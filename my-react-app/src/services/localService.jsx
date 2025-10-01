@@ -9,7 +9,7 @@ export async function criarLocal(local) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbnRlQGdtYWlsLmNvbSIsInJvbGUiOiJHRVJFTlRFIiwiZXhwIjoxNzU4ODA1MjE4fQ.Gc69wY1hxMlx9XZeqfqsIs9XV8hDzvcUVSfmKkIXV9s`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbnRlQGdtYWlsLmNvbSIsInJvbGUiOiJHRVJFTlRFIiwiZXhwIjoxNzU4ODA2NzY5fQ.6Y2FBAnKs461xlCex-QvDRs34Yg26PtWMWIulHVvxFs`,
     },
     body: JSON.stringify(local),
   });
