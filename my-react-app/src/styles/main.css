@@ -1,7 +1,4 @@
-@import './cadastroComponent.css';
-@import './loginComponent.css';
-@import './eventosComponent.css';
-@import './locaisComponent.css';
+@import './local.module.css';
 
 
 /* Reset básico*/
@@ -13,21 +10,21 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   height: 100%;
   width: 100%;
   font-family: sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
-img, picture, video, canvas, svg {
+/* img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
-}
+} */
 
-input, button, textarea, select {
+/* input, button, textarea, select {
   font: inherit;
   border: none;
   outline: none;
@@ -37,8 +34,8 @@ input, button, textarea, select {
 a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
-ul, ol {
+/* ul, ol {
   list-style: none;
-}
+} */

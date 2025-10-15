@@ -18,18 +18,20 @@ public class LocalController {
 
     private final LocalService localService;
 
-    @PreAuthorize("!hasAuthority('VISITANTE')")
+    // @PreAuthorize("!hasAuthority('VISITANTE')")
     @PostMapping
     public ResponseEntity<Local> criarLocal(@RequestBody LocalDTO localDTO) {
         var local = localService.criarLocal(localDTO);
         return ResponseEntity.created(URI.create("/locais/" + local.getId())).body(local);
     }
-    @PreAuthorize("!hasAuthority('VISITANTE')")
+
+    // @PreAuthorize("!hasAuthority('VISITANTE')")
     @GetMapping
     public ResponseEntity<List<Local>> listarLocais() {
         return ResponseEntity.ok(localService.listarLocais());
     }
-    @PreAuthorize("!hasAuthority('VISITANTE')")
+
+    // @PreAuthorize("!hasAuthority('VISITANTE')")
     @GetMapping("/{id}")
     public ResponseEntity<Local> buscarLocal(@PathVariable Long id) {
         return localService.buscarLocal(id)
@@ -37,18 +39,17 @@ public class LocalController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PreAuthorize("!hasAuthority('VISITANTE')")
+    // @PreAuthorize("!hasAuthority('VISITANTE')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarLocal(@PathVariable Long id) {
         localService.deletarLocal(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PreAuthorize("!hasAuthority('VISITANTE')")
+    // @PreAuthorize("!hasAuthority('VISITANTE')")
     @PutMapping("/{id}")
     public ResponseEntity<Local> editarLocal(@PathVariable Long id, @RequestBody LocalDTO localDTO) {
         var local = localService.editarLocal(id, localDTO);
         return ResponseEntity.ok(local);
     }
 }
-
