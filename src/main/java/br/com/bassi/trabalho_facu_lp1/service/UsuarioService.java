@@ -21,6 +21,9 @@ public class UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
+        if (usuarioRepository.existsByEmail(dto.email())) {
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
         usuario.setSenha(passwordEncoder.encode(dto.senha()));
         usuario.setCpf(dto.cpf());
         usuario.setCargo(EnumCargos.VISITANTE);

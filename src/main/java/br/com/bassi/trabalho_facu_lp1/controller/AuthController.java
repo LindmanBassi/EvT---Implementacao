@@ -9,6 +9,7 @@ import br.com.bassi.trabalho_facu_lp1.service.FuncionarioService;
 import br.com.bassi.trabalho_facu_lp1.service.UsuarioService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class AuthController {
     private final FuncionarioService funcionarioService;
 
     @PostMapping("/login")
-    public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest loginRequest, HttpServletResponse response) {
+    public ResponseEntity<TokenResponse> login(@RequestBody @Valid LoginRequest loginRequest, HttpServletResponse response) {
         String token = authService.autenticar(loginRequest.email(), loginRequest.senha());
 
         Cookie cookie = new Cookie("Authorization", token);
@@ -38,7 +39,7 @@ public class AuthController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<String> cadastrar(@RequestBody UsuarioDTO dto) {
+    public ResponseEntity<String> cadastrar(@RequestBody @Valid UsuarioDTO dto) {
         usuarioService.cadastrarUsuario(dto);
         return ResponseEntity.ok("Usuário cadastrado com sucesso!");
     }

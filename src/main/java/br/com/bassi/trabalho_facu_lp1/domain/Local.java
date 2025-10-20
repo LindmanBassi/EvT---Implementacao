@@ -1,6 +1,5 @@
 package br.com.bassi.trabalho_facu_lp1.domain;
 
-import br.com.bassi.trabalho_facu_lp1.dto.LocalDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +16,7 @@ public class Local {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String nome;
 
     private int capacidade;
