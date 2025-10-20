@@ -3,6 +3,7 @@ package br.com.bassi.trabalho_facu_lp1.controller;
 import br.com.bassi.trabalho_facu_lp1.domain.Local;
 import br.com.bassi.trabalho_facu_lp1.dto.LocalDTO;
 import br.com.bassi.trabalho_facu_lp1.service.LocalService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,7 +21,7 @@ public class LocalController {
 
     // @PreAuthorize("!hasAuthority('VISITANTE')")
     @PostMapping
-    public ResponseEntity<Local> criarLocal(@RequestBody LocalDTO localDTO) {
+    public ResponseEntity<Local> criarLocal(@RequestBody @Valid LocalDTO localDTO) {
         var local = localService.criarLocal(localDTO);
         return ResponseEntity.created(URI.create("/locais/" + local.getId())).body(local);
     }

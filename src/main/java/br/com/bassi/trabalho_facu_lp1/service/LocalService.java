@@ -24,6 +24,9 @@ public class LocalService {
         Endereco endereco = construirEnderecoCompletado(localDTO.endereco());
         Local local = new Local();
         local.setNome(localDTO.nome());
+        if (localRepository.existsByNome(localDTO.nome())) {
+            throw new IllegalArgumentException("Já existe um local com esse nome.");
+        }
         local.setCapacidade(localDTO.capacidade());
         local.setEndereco(endereco);
         return localRepository.save(local);
