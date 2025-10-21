@@ -21,7 +21,9 @@ public class CorsConfig {
                 HttpMethod.POST.name(),
                 HttpMethod.PUT.name(),
                 HttpMethod.DELETE.name())
-            .allowedHeaders(HttpHeaders.CONTENT_TYPE, HttpHeaders.AUTHORIZATION);
+            .allowedHeaders("*")
+            .exposedHeaders(HttpHeaders.AUTHORIZATION)
+            .allowCredentials(true);
       }
     };
   }
