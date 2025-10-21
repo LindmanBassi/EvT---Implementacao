@@ -1,13 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LocalPage from './pages/LocalPage';
-import LocalComponent from './features/local/components/LocalForm';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LocalPage />} />
+        <Route path="/" element={<Navigate to="/auth" replace />} />
+        <Route path="/auth" element={<LoginPage />} />
+        <Route path="/locais" element={<LocalPage />} />
       </Routes>
     </BrowserRouter>
   );
